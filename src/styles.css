@@ -1,0 +1,175 @@
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111;
+  background: #ffffff;
+}
+
+a {
+  color: #1976d2;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+.page {
+  max-width: 960px;
+  margin: 20px auto;
+  padding: 0 16px 24px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.page-title {
+  margin: 0 0 4px;
+  font-size: 1.4rem;
+}
+
+.page-subtitle {
+  margin: 0;
+  color: #555;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: 1px solid #1976d2;
+  border-radius: 4px;
+  padding: 6px 12px;
+  background: #1976d2;
+  color: #ffffff;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.btn.secondary {
+  background: #ffffff;
+  color: #1976d2;
+}
+
+.btn.ghost {
+  background: #ffffff;
+  color: #333;
+  border-color: #cfcfcf;
+}
+
+.btn.danger {
+  background: #d32f2f;
+  border-color: #d32f2f;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+label {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+input,
+textarea {
+  padding: 8px 10px;
+  border-radius: 4px;
+  border: 1px solid #cfcfcf;
+  font-size: 0.9rem;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #1976d2;
+}
+
+.helper {
+  color: #666;
+  font-size: 0.8rem;
+}
+
+.error {
+  color: #c62828;
+  margin-top: 8px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  border: 1px solid #e0e0e0;
+  padding: 8px;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.table th {
+  background: #f5f5f5;
+  font-weight: 600;
+}
+
+.table-actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  background: #eeeeee;
+  color: #333;
+  font-size: 0.75rem;
+  margin-left: 6px;
+}
+
+@media (max-width: 720px) {
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,46 @@
+<section class="page">
+  <div class="card">
+    <div class="login-header">
+      <h1 class="page-title">Login</h1>
+      <p class="page-subtitle">Ingresa tus credenciales para continuar.</p>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="field">
+        <label for="usuario">Usuario</label>
+        <input
+          id="usuario"
+          type="text"
+          formControlName="usuario"
+          autocomplete="username"
+          placeholder="admin"
+        />
+        <span class="helper" *ngIf="form.controls.usuario.touched && form.controls.usuario.invalid">
+          Usuario requerido.
+        </span>
+      </div>
+
+      <div class="field">
+        <label for="clave">Clave</label>
+        <input
+          id="clave"
+          type="password"
+          formControlName="clave"
+          autocomplete="current-password"
+          placeholder="123"
+        />
+        <span class="helper" *ngIf="form.controls.clave.touched && form.controls.clave.invalid">
+          Clave requerida.
+        </span>
+      </div>
+
+      <div class="actions">
+        <button class="btn" type="submit" [disabled]="loading">
+          {{ loading ? 'Ingresando...' : 'Entrar' }}
+        </button>
+      </div>
+    </form>
+
+    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+  </div>
+</section>

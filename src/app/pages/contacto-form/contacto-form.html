@@ -1,0 +1,96 @@
+<section class="page">
+  <header class="page-header">
+    <div>
+      <h1 class="page-title">
+        {{ mode === 'create' ? 'Nuevo contacto' : 'Editar contacto' }}
+      </h1>
+      <p class="page-subtitle">
+        Gestiona tus contactos.
+        <span class="badge">Perfil {{ sessionInfo?.perfil }}</span>
+      </p>
+    </div>
+    <div class="actions">
+      <a class="btn ghost" routerLink="/contactos">Volver</a>
+    </div>
+  </header>
+
+  <div class="card">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-grid">
+        <div class="field">
+          <label for="rutContacto">RUT</label>
+          <input
+            id="rutContacto"
+            type="text"
+            formControlName="rutContacto"
+            placeholder="11.111.111-1"
+          />
+          <span class="helper" *ngIf="form.controls.rutContacto.touched && form.controls.rutContacto.invalid">
+            RUT requerido.
+          </span>
+        </div>
+
+        <div class="field">
+          <label for="nombreContacto">Nombre</label>
+          <input
+            id="nombreContacto"
+            type="text"
+            formControlName="nombreContacto"
+            placeholder="Nombre del contacto"
+          />
+          <span class="helper" *ngIf="form.controls.nombreContacto.touched && form.controls.nombreContacto.invalid">
+            Nombre requerido.
+          </span>
+        </div>
+
+        <div class="field">
+          <label for="abreviacion">Abreviacion</label>
+          <input
+            id="abreviacion"
+            type="text"
+            formControlName="abreviacion"
+            placeholder="Abreviacion"
+          />
+          <span class="helper" *ngIf="form.controls.abreviacion.touched && form.controls.abreviacion.invalid">
+            Abreviacion requerida.
+          </span>
+        </div>
+
+        <div class="field">
+          <label for="telefono">Telefono</label>
+          <input
+            id="telefono"
+            type="text"
+            formControlName="telefono"
+            placeholder="+56 9 1234 5678"
+          />
+          <span class="helper" *ngIf="form.controls.telefono.touched && form.controls.telefono.invalid">
+            Telefono requerido.
+          </span>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            formControlName="email"
+            placeholder="correo@dominio.cl"
+          />
+          <span class="helper" *ngIf="form.controls.email.touched && form.controls.email.invalid">
+            Email valido requerido.
+          </span>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn" type="submit" [disabled]="loading">
+          {{ loading ? 'Guardando...' : 'Guardar' }}
+        </button>
+        <a class="btn secondary" routerLink="/contactos">Cancelar</a>
+      </div>
+    </form>
+
+    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+  </div>
+</section>

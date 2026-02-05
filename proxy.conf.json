@@ -1,0 +1,8 @@
+{
+  "/taskfocus": {
+    "target": "https://sandeonline.cl:2082",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

@@ -1,0 +1,57 @@
+<section class="page">
+  <header class="page-header">
+    <div>
+      <h1 class="page-title">Contactos</h1>
+      <p class="page-subtitle">
+        Sesion de {{ sessionInfo?.nombre }} {{ sessionInfo?.apellido }}
+        <span class="badge">Perfil {{ sessionInfo?.perfil }}</span>
+      </p>
+    </div>
+    <div class="actions">
+      <a class="btn" *ngIf="canCreate" routerLink="/contactos/nuevo">Nuevo</a>
+      <button class="btn ghost" type="button" (click)="onLogout()">Cerrar sesion</button>
+    </div>
+  </header>
+
+  <div class="card">
+    <p *ngIf="loading">Cargando contactos...</p>
+    <p *ngIf="!loading && contactos.length === 0">No hay contactos disponibles.</p>
+    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+    <table class="table" *ngIf="!loading && contactos.length > 0">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>RUT</th>
+          <th>Nombre</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contacto of contactos; trackBy: trackById">
+          <td>{{ contacto.idContacto }}</td>
+          <td>{{ contacto.rutContacto }}</td>
+          <td>{{ contacto.nombreContacto }}</td>
+          <td>
+            <div class="table-actions">
+              <a
+                *ngIf="canEdit"
+                class="btn secondary"
+                [routerLink]="['/contactos', contacto.idContacto, 'editar']"
+                >Editar</a
+              >
+              <button
+                *ngIf="canDelete"
+                class="btn danger"
+                type="button"
+                (click)="onDelete(contacto)"
+              >
+                Eliminar
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
